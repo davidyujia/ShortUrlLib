@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Company></Company>
+    <Authors>David</Authors>
+    <PackageProjectUrl>https://github.com/davidyujia/ShortUrlLib</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageTags>ShortUrl</PackageTags>
+    <Copyright></Copyright>
+    <Description>Short URL APIs package</Description>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <NeutralLanguage></NeutralLanguage>
+    <RepositoryUrl>https://github.com/davidyujia/ShortUrlLib</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+</Project>
