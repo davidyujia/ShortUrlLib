@@ -8,30 +8,34 @@ using System.Threading.Tasks;
 namespace ShortUrlLib
 {
     /// <summary>
-    /// picsee
+    /// https://pse.is/
     /// </summary>
-    public class PicSeeApi : IShortUrlApi
+    public class PicSeeApi : ShortUrlApi
     {
         private readonly string _url;
 
         /// <summary>
-        /// default access token generates short url only can alive one hour.
+        /// use test access token to generates short url (the URL only alive one hour). 
         /// </summary>
         public PicSeeApi() : this("20f07f91f3303b2f66ab6f61698d977d69b83d64")
         {
         }
 
+        /// <summary>
+        /// use access token to init
+        /// </summary>
+        /// <param name="accessToken"></param>
         public PicSeeApi(string accessToken)
         {
             _url = "https://api.pics.ee/v1/links/?access_token=" + accessToken;
         }
 
-        public async Task<string> GenerateAsync(string url)
-        {
-            return await Task.Factory.StartNew(() => Generate(url));
-        }
-
-        public string Generate(string url)
+        /// <summary>
+        /// Get short url
+        /// </summary>
+        /// <param name="url">original url</param>
+        /// <returns>short url</returns>
+        public override string Generate(string url)
         {
             var request = (HttpWebRequest)WebRequest.Create(_url);
             request.ContentType = "application/json";
@@ -62,7 +66,7 @@ namespace ShortUrlLib
             }
         }
 
-        protected static T GetResult<T>(Stream stream) where T : class
+        private static T GetResult<T>(Stream stream) where T : class
         {
             var serializer = new DataContractJsonSerializer(typeof(T));
             return serializer.ReadObject(stream) as T;
