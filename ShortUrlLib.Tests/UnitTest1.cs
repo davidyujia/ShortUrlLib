@@ -10,9 +10,13 @@ namespace ShortUrlLib.Tests
         }
 
         [Test]
-        public void Test1()
+        public void PicSeeApiGenerateTest()
         {
-            Assert.Pass();
+            var service = new ShortUrlLib.PicSeeApi();
+
+            var shortUrl = service.Generate("https://github.com/");
+
+            Assert.IsNotEmpty(shortUrl);
         }
     }
 }
